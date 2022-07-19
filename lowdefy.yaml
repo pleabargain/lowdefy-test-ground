@@ -1,0 +1,106 @@
+
+lowdefy: 3.23.3
+name: Lowdefy starter
+
+connections:
+  - id: google_sheet
+    type: GoogleSheet
+    properties:
+      client_email:
+        _secret: SHEETS_CLIENT_EMAIL
+      private_key:
+        _base64.decode:
+          _secret: SHEETS_PRIVATE_KEY
+      sheetIndex: 0
+      spreadsheetId: 1MLOGCm7tLM3kgjJC_gJ1xdEcT9GpkSBsB2aJvf82Z_Q
+      write: true
+
+menus:
+  - id: default
+    links:  
+        # This is the welcome page
+        # pages read left to right e..g the first id is displayed first
+      - id: welcome
+        type: MenuLink
+        properties:
+          icon: HomeOutlined
+          title: Home
+        pageId: welcome
+      - id: new-ticket
+        type: MenuLink
+        properties:
+          icon: AlertOutlined
+          title: New ticket
+        pageId: new-ticket
+        # Create a contact page
+      - id: new-contact
+        type: MenuLink
+        properties:
+          icon: AlertOutlined
+          title: New contact
+        pageId: new-contact
+      - id: echart
+        type: MenuLink
+        properties:
+          icon: AlertOutlined
+          title: echart New contact
+        pageId: echart        
+
+
+pages:
+  #make sure your pages gett added here!
+  - _ref: new-contact.yaml
+  - _ref: new-ticket.yaml
+  - _ref: echart.yaml
+  
+
+  # - _ref: todo-list.yaml
+
+  - id: welcome
+    type: PageHeaderMenu
+    properties:
+      title: Welcome to the future of coding
+    areas:
+      content:
+        justify: center
+        blocks:
+          - id: content_card
+            type: Card
+            style:
+              maxWidth: 800
+            blocks:
+              - id: content
+                type: Result
+                properties:
+                  title: Welcome to your Lowdefy app
+                  # subTitle: We are excited to see what you are going to build
+                  subTitle: I am excited to see what you are going to build
+                  
+                  icon:
+                    name: HeartTwoTone
+                    color: '#f00'
+                areas:
+                  extra:
+                    blocks:
+                      - id: docs_button
+                        type: Button
+                        properties:
+                          size: large
+                          title: Let's build something
+                          color: '#1890ff'
+                        events:
+                          onClick:
+                            - id: link_to_docs
+                              type: Link
+                              params:
+                                url: https://docs.lowdefy.com
+                                newTab: true
+      footer:
+        blocks:
+          - id: footer
+            type: Paragraph
+            properties:
+              type: secondary
+              content: |
+                Made by a Lowdefy 🤖
+

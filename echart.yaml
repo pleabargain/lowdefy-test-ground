@@ -1,0 +1,292 @@
+
+id: echart
+type: PageHeaderMenu
+
+properties:
+  title: echart  # The title in the browser tab.
+layout:
+  contentJustify: center # Center the contents of the page.
+
+blocks:
+  - id: block_id
+    type: EChart
+    properties:
+      option:
+        xAxis:
+          type: category
+          data:
+            - Mon
+            - Tue
+            - Wed
+            - Thu
+            - Fri
+            - Sat
+            - Sun
+        yAxis:
+          type: value
+        series:
+          - type: bar
+            data:
+              - 150
+              - 230
+              - 224
+              - 218
+              - 135
+              - 147
+              - 260
+
+
+
+  - id: Date Selector block_id
+    type: DateSelector
+    properties:
+      disabledDates:
+        dates: []
+        ranges: []      
+
+  - id: This button selector behaves differently than the others
+  # I need to learn how to write my answers to a file!
+    type: ButtonSelector
+    properties:
+      options:
+        - label: First
+          value: 1
+          disabled: false
+          style: null
+        - label: Second
+          value: 2
+          disabled: false
+          style: null
+  
+      label:
+        colon: false
+
+
+  - id: block_id
+  # question is how to pass the answers to a text file and or online database
+    type: CheckboxSelector
+    properties:
+      options:
+        - label: First
+          value: 1
+          disabled: false
+          style: null
+        - label: Second
+          value: 2
+          disabled: false
+          style: null
+
+  - id: This is for context block_id
+    type: Context
+    properties:
+      content: Here is some context in the Context block. But my color selector is NOT showing up.
+      blocks:
+      - id: Color Selector
+        type: ChromeColorSelector
+        properties:
+          defaultColor: '#faad14'
+
+# how to pass these colors to another object on the page in real time
+  - id: three colors to choose from
+    type: ColorSelector
+    properties:
+      colors:
+        - '#f5222d'
+        - '#fa541c'
+        - '#fa8c16'
+
+
+
+  - id: for creating a color scheme for branding etc
+    type: CircleColorSelector
+    properties:
+      circleSize: 90
+      circleSpacing: 13.4
+      colors:
+        - '#e91e63'
+        - '#9c27b0'
+        - '#673ab7'
+        - '#3f51b5'
+        - '#2196f3'
+        - '#03a9f4'
+        - '#00bcd4'
+        - '#009688'
+        - '#4caf50'
+        - '#8bc34a'
+        - '#cddc39'
+        - '#ffeb3b'
+        - '#ffc107'
+        - '#ff9800'
+        - '#ff5722'
+        - '#795548'
+
+  - id: Check box with description
+    type: CheckboxSwitch
+    properties:
+      description: >-
+        I agree to the terms and conditions and privacy policy as found on the
+        website.... Thoroughly I agree to the terms and conditions and privacy
+        policy as found on the website....
+      autoFocus: true
+      label:
+        disabled: false
+       
+        # This is for autocomplete
+  - id: Auto complete
+    type: AutoComplete
+    properties:
+      autoFocus: true
+
+  - id: block_id
+    type: DateRangeSelector
+    properties:
+      disabledDates:
+        dates: []
+        ranges: []
+      placeholder:
+        - Start Date
+        - End Date
+     
+  - id: Color Selector
+    type: ChromeColorSelector
+    properties:
+      defaultColor: '#faad14'
+
+
+  - id: block_id
+    type: Alert
+    properties:
+      message: Alerts help to highlight important information.
+
+  - id: create a new contact
+    type: Alert
+    properties:
+      message: Click ADD item to create a new contact
+
+  - id: contacts
+    type: ControlledList
+    blocks:
+      - id: contacts.$.first_name
+        type: TextInput
+        layout:
+          span: 12
+        required: true
+        properties:
+          title: First Name
+          label:
+            span: 10
+            align: right
+      - id: contacts.$.last_name
+        type: TextInput
+        layout:
+          span: 12
+        required: true
+        properties:
+          title: Last Name
+          label:
+            span: 10
+            align: right
+      - id: contacts.$.date_of_birth
+        type: DateSelector
+        layout:
+          span: 12
+        required: true
+        properties:
+          title: Date of Birth
+          label:
+            span: 10
+            align: right
+      - id: contacts.$.email
+        type: TextInput
+        layout:
+          span: 12
+        required: true
+        properties:
+          title: Email address
+          label:
+            span: 10
+            align: right
+      - id: contacts.$.phone_number
+        type: TextInput
+        layout:
+          span: 12
+        properties:
+          title: Phone number
+          label:
+            span: 10
+            align: right
+      - id: contacts.$.preference
+        type: ButtonSelector
+        layout:
+          span: 12
+        properties:
+          title: Preference
+          label:
+            span: 10
+            align: right
+          options:
+            - Phone
+            - Email
+            - Smoke Signal
+
+
+  - id: todo_app
+    type: Box
+    layout:
+      contentGutter: 16
+    blocks:
+      - id: todo_input
+        type: TextInput
+        layout:
+          grow: 1
+        properties:
+          label:
+            disabled: true
+          placeholder: Write some thing todo...
+      - id: add_item
+        type: Button
+        layout:
+          shrink: 1
+        properties:
+          title: Add item
+          icon: PlusOutlined
+        events:
+          onClick:
+            - id: add
+              type: SetState
+              params:
+                todos:
+                  _array.concat:
+                    - - _state: todo_input
+                    - _state: todos
+                todo_input: null
+      - id: todos
+        type: List
+        layout:
+          contentGutter: 16
+        blocks:
+          - id: todos.$
+            type: TitleInput
+            layout:
+              grow: 1
+            properties:
+              level: 4
+          - id: remove_item
+            type: Icon
+            layout:
+              shrink: 1
+            properties:
+              name: MinusCircleOutlined
+              size: 18
+            events:
+              onClick:
+                - id: remove
+                  type: CallMethod
+                  messages:
+                    loading: sd f sdfgsdfg
+                    success: hi sdfg sdfgs g
+                  params:
+                    blockId: todos
+                    method: removeItem
+                    args:
+                      - _index: 0            
