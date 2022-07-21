@@ -32,19 +32,34 @@ menus:
           icon: AlertOutlined
           title: New ticket
         pageId: new-ticket
-        # Create a contact page
+
+
+# Create a contact page
       - id: new-contact
         type: MenuLink
         properties:
           icon: AlertOutlined
           title: New contact
         pageId: new-contact
+      
+# create a test page of a bunch of blocks
+
       - id: echart
         type: MenuLink
         properties:
           icon: AlertOutlined
-          title: echart New contact
+          title: This is a mish mash of blocks
         pageId: echart        
+
+# create a test page of a bunch of blocks
+
+      - id: nunchuck
+        type: MenuLink
+        properties:
+          icon: AlertOutlined
+          title: nunchuck blocks
+        pageId: nunchuck     
+
 
 
 pages:
@@ -52,6 +67,9 @@ pages:
   - _ref: new-contact.yaml
   - _ref: new-ticket.yaml
   - _ref: echart.yaml
+  - _ref: nunchuck.yaml
+
+
   
 
   # - _ref: todo-list.yaml

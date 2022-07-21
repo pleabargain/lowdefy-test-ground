@@ -34,7 +34,8 @@ type: PageHeaderMenu
 
 
 properties:
-  title: New contact # The title in the browser tab.
+# this is the title in the tab
+  title: New contact again # The title in the browser tab.
 layout:
   contentJustify: center # Center the contents of the page.
 blocks:
