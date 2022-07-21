@@ -1,7 +1,0 @@
-# id: todos
-# type: context
-# blocks:
-#   - id: todos.$
-#     type: TitleInput
-#     properties:
-#       level: 4
