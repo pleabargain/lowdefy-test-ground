@@ -2,23 +2,28 @@
 id: nunchuck
 type: PageHeaderMenu
 
-
-connections:
-  - id: githubapi
-    type: AxiosHttp
-    properties:
-      baseURL: https://api.github.com
-
 requests:
   - id: github_data
     type: AxiosHttp
     connectionId: githubapi
     properties:
       url: /users/github/repos
-    params:
-      type: all
-      per_page: 100
+      params:
+        type: all
+        per_page: 5
 
+events:
+  onMount:
+    - id: get_repos
+      type: Request
+      params: 
+        - github_data
+    - id: set_repos
+      type: SetState
+      params:
+        _log: # This line logs to the browser console so you can check the data
+          repo_list:
+            _request: github_data.data
 
 properties:
 # this is the title in the tab
@@ -31,21 +36,18 @@ blocks:
     layout:
       size: 800 # Set the size of the card so it does not fill the full screen.
       contentGutter: 16 # Make a 16px gap between all blocks in this card.
-      blocks:
-        - id: page_heading
-          type: Title
-          required: false
-          properties:
-            content: nunchuck block # Change the title on the page.
-            level: 3 # Make the title a little smaller (an html `<h3>`).
+    blocks:
+      - id: test
+        type: Markdown
+        properties:
+          content:
             _nunjucks:
               template: |
                 ### {{ title }}
-
-                {% for item in item_list %}
-                - {{ item.full_name }}: {{ item.id }}
+                {% for item in items %}
+                - {{ item.name }}: {{ item.id }}
                 {% endfor %}
               on:
                 title: "github repos : name and ID"
                 items:
-                  _request: get_items
+                  _state: repo_list
