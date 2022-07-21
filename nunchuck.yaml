@@ -1,0 +1,51 @@
+# This will be a test page for connecting to nunchuck
+id: nunchuck
+type: PageHeaderMenu
+
+
+connections:
+  - id: githubapi
+    type: AxiosHttp
+    properties:
+      baseURL: https://api.github.com
+
+requests:
+  - id: github_data
+    type: AxiosHttp
+    connectionId: githubapi
+    properties:
+      url: /users/github/repos
+    params:
+      type: all
+      per_page: 100
+
+
+properties:
+# this is the title in the tab
+  title: New contact again # The title in the browser tab.
+layout:
+  contentJustify: center # Center the contents of the page.
+blocks:
+  - id: content_card
+    type: Card
+    layout:
+      size: 800 # Set the size of the card so it does not fill the full screen.
+      contentGutter: 16 # Make a 16px gap between all blocks in this card.
+      blocks:
+        - id: page_heading
+          type: Title
+          required: false
+          properties:
+            content: nunchuck block # Change the title on the page.
+            level: 3 # Make the title a little smaller (an html `<h3>`).
+            _nunjucks:
+              template: |
+                ### {{ title }}
+
+                {% for item in item_list %}
+                - {{ item.full_name }}: {{ item.id }}
+                {% endfor %}
+              on:
+                title: "github repos : name and ID"
+                items:
+                  _request: get_items
