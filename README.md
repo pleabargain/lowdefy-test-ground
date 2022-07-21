@@ -2,6 +2,8 @@
 
 This is my playround as I learn how to connect lowdefy YAML to databases and etc.
 
+# added a chart
+<img width="171" alt="image" src="https://user-images.githubusercontent.com/640846/180224676-f2ea4bbb-6d06-4514-8267-f5d03f9f8e45.png">
 
 
 ## Axios nunchuck connection error
