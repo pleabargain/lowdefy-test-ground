@@ -14,6 +14,10 @@ connections:
       sheetIndex: 0
       spreadsheetId: 1MLOGCm7tLM3kgjJC_gJ1xdEcT9GpkSBsB2aJvf82Z_Q
       write: true
+  - id: githubapi
+    type: AxiosHttp
+    properties:
+      baseURL: https://api.github.com
 
 menus:
   - id: default
