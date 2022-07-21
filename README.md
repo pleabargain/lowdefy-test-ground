@@ -8,6 +8,9 @@ Trying to get nuchuck to play nice. I want a sample to read the postman job API 
 
 All errors are mine. The devs are very helpful and you can find them on discord.
 
+## Axios connection error
+<img width="342" alt="image" src="https://user-images.githubusercontent.com/640846/180199910-f65d3581-f778-4fc3-9cf9-97ffa17449bd.png">
+
 Big thanks to Jon for his patience and help!
 
  https://discord.gg/NekjCEyC
