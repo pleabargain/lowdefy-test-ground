@@ -20,7 +20,20 @@ Jon helped get nunchuck to play nice. Thanks Jon!
 
 
 ## NEW error on connecting books.yaml to glitch.me
-Tried to reproduce the same Axios connection params but with a different API. No joy. 
+I didn't update the lowdefy.yaml file with the necessary details! My bad!  Here's the working github code. 
+
+
+
+
+```
+# github connection
+  - id: githubapi
+    type: AxiosHttp
+    properties:
+      baseURL: https://api.github.com
+
+```
+Tried to reproduce the same Axios connection params but with a different API. No joy. My connection to the books API is NOT working.  See the top of the books.yaml file for all of the errors I've thrown. 
 
 <img width="297" alt="image" src="https://user-images.githubusercontent.com/640846/180388339-76906bea-3532-4461-bc87-98c9935b1800.png">
 

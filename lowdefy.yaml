@@ -14,10 +14,18 @@ connections:
       sheetIndex: 0
       spreadsheetId: 1MLOGCm7tLM3kgjJC_gJ1xdEcT9GpkSBsB2aJvf82Z_Q
       write: true
+      
+# github connection
   - id: githubapi
     type: AxiosHttp
     properties:
       baseURL: https://api.github.com
+
+# book connection
+  - id: postman-library-api.glitch.me
+    type: AxiosHttp
+    properties:
+      baseURL: https://postman-library-api.glitch.me
 
 menus:
   - id: default
