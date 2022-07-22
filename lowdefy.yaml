@@ -61,8 +61,19 @@ menus:
         type: MenuLink
         properties:
           icon: AlertOutlined
-          title: nunchuck blocks
+          # this is what people see
+          title: github response
         pageId: nunchuck     
+
+      - id: books
+        type: MenuLink
+        properties:
+          icon: AlertOutlined
+          # this is what people see
+          title: book response
+        pageId: books    
+
+
 
 
 
@@ -72,6 +83,8 @@ pages:
   - _ref: new-ticket.yaml
   - _ref: echart.yaml
   - _ref: nunchuck.yaml
+  - _ref: books.yaml
+
 
 
   

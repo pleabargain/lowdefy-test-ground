@@ -1,13 +1,16 @@
 # This will be a test page for connecting to nunchuck
-id: nunchuck
+# error on connect 
+# Configuration Error: Request postman-library-api.glitch.me not defined on context.
+# Configuration Error: Connection "postman-library-api.glitch.me" does not exist.
+id: books
 type: PageHeaderMenu
 
 requests:
-  - id: github_data
+  - id: postman-library-api
     type: AxiosHttp
-    connectionId: githubapi
+    connectionId: postman-library-api.glitch.me
     properties:
-      url: /users/github/repos
+      url: /books
       params:
         type: all
         per_page: 5
@@ -17,17 +20,17 @@ events:
     - id: get_repos
       type: Request
       params: 
-        - github_data
+        - postman-library-api
     - id: set_repos
       type: SetState
       params:
         _log: # This line logs to the browser console so you can check the data
           repo_list:
-            _request: github_data.data
+            _request: postman-library-api.glitch.me.data
 
 properties:
 # this is the title in the tab
-  title: github list # The title in the browser tab.
+  title: books # The title in the browser tab.
 layout:
   contentJustify: center # Center the contents of the page.
 blocks:
@@ -45,9 +48,9 @@ blocks:
               template: |
                 ### {{ title }}
                 {% for item in items %}
-                - {{ item.name }}: {{ item.id }}
+                - {{ item.title }}: {{ item.author }}
                 {% endfor %}
               on:
-                title: "github repos : name and ID"
+                title: "book list : title and author"
                 items:
                   _state: repo_list

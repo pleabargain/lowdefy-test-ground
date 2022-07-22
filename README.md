@@ -1,20 +1,26 @@
 # lowdefy-test-ground
 
-This is my playround as I learn how to connect lowdefy YAML to databases and etc.
+This is my playground as I learn how to connect lowdefy YAML to APIs,databases, and etc.
 
 # added a chart
 <img width="171" alt="image" src="https://user-images.githubusercontent.com/640846/180224676-f2ea4bbb-6d06-4514-8267-f5d03f9f8e45.png">
 
 
-## Axios nunchuck connection error
-<img width="342" alt="image" src="https://user-images.githubusercontent.com/640846/180199910-f65d3581-f778-4fc3-9cf9-97ffa17449bd.png">
+## Axios nunchuck connection error: FIXED
+Check out the correct config in the nunchuck.yaml file to connect to the Github repo list. 
+Next step will be to play with pagination options.
 
-Trying to get nuchuck to play nice. I want a sample to read the postman job API and display the contents. Start small, right?
 
-![nunchuckgoal Unsaved Image](https://user-images.githubusercontent.com/640846/180190081-7c178290-a9e1-4053-9c10-48eb88b8e5b7.png)
+Jon helped get nunchuck to play nice. Thanks Jon!
+
+
+## NEW error on connecting books.yaml to glitch.me
+Tried to reproduce the same Axios connection params but with a different API. No joy. 
+
+<img width="297" alt="image" src="https://user-images.githubusercontent.com/640846/180388339-76906bea-3532-4461-bc87-98c9935b1800.png">
 
 ## thanks
-Big thanks to Jon for his patience and help!
+Big thanks to Jon for his patience and help! He wrote up the code for the github connection in the nunchuck file.
 
 ## thanks again
 The devs are very helpful and you can find them on discord.
