@@ -1,10 +1,15 @@
 # lowdefy-test-ground
 
+## URL
+https://github.com/pleabargain/lowdefy-test-ground
+
+# description
 This is my playground as I learn how to connect lowdefy YAML to APIs,databases, and etc.
 
 # added a chart
 <img width="171" alt="image" src="https://user-images.githubusercontent.com/640846/180224676-f2ea4bbb-6d06-4514-8267-f5d03f9f8e45.png">
-
+## next step
+Get the chart to display real time temp data from X country.
 
 ## Axios nunchuck connection error: FIXED
 Check out the correct config in the nunchuck.yaml file to connect to the Github repo list. 
